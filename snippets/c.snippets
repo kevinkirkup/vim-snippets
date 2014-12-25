@@ -235,3 +235,197 @@ snippet gpl
 	 */
 
 	${0}
+snippet printb
+	//-----------------------------------------------------------------------------
+	/**
+	 *  Method to print the specified byte array
+	 *
+	 *  @param buffer [in] the buffer to print
+	 *  @param length [in] the length of the buffer
+	 *  @returns ${1}
+	 */
+	//-----------------------------------------------------------------------------
+	static ${1:void}
+	debug_print_buffer(
+	    const ${2:uint8}* const buffer,
+	    ${3:uint16} length
+	    )
+	{
+	#define BYTES_PER_LINE 16
+	#define BYTE_SEGMENTS = 4
+	
+	     // Check the input parameters
+	     if ((buffer != NULL) &&
+	         (length != 0)) {
+	
+	          int count;
+	
+	          // Iterate through the entire receive buffer
+	          for (count = 0; count < length; count++) {
+	
+	               // Add a line number
+	               if (count % BYTES_PER_LINE == 0)
+	                    printf("\n0%d: ", (int)(count / BYTES_PER_LINE));
+	
+	               // Add a space between every the segments
+	               if (count % BYTE_SEGMENTS == 0) {
+	                    printf(" %02x",buffer[count]);
+	
+	               } else {
+	                    printf("%02x",buffer[count]);
+	               }
+	          }
+	
+	          // Add a newline at the end
+	          printf("\n");
+	          return ${4};
+	     }
+	
+	     return ${5:error};
+	}
+###########################################################################
+# File Sections
+###########################################################################
+# File includes
+snippet finc
+	//////////////////////////////////////////////////////////////////////
+	/// @name Includes
+	//@{
+	
+	${1}
+	
+	//@} End of Includes
+# File Defines
+snippet fdef
+	//////////////////////////////////////////////////////////////////////
+	/// @name Defines
+	//@{
+	
+	${1}
+	
+	//@} End of Defines
+# File Typedefs
+snippet ftype
+	//////////////////////////////////////////////////////////////////////
+	/// @name Typedefs
+	//@{
+	
+	${1}
+	
+	//@} End of Typedefs
+# File Types
+snippet ftypes
+	//////////////////////////////////////////////////////////////////////
+	/// @name Types
+	//@{
+	
+	${1}
+	
+	//@} End of Types
+# File Data
+snippet fdata
+	//////////////////////////////////////////////////////////////////////
+	/// @name Data
+	//@{
+	
+	${1}
+	
+	//@} End of Data
+# File Private Methods
+snippet fprivate
+	//////////////////////////////////////////////////////////////////////
+	/// @name Private Methods
+	//@{
+	
+	${1}
+	
+	//@} End of Private Methods
+# File Public Methods
+snippet fpublic
+	//////////////////////////////////////////////////////////////////////
+	/// @name Methods
+	//@{
+	
+	${1}
+	
+	//@} End of Methods
+snippet fsec
+	//////////////////////////////////////////////////////////////////////
+	/// @name ${1:Section Name}
+	//@{
+	
+	${2}
+	
+	//@} End of $1
+
+###########################################################################
+# Keywords
+###########################################################################
+snippet bug
+	 /* :BUG: `strftime("%c")`:`g:snips_email`: ${1} */
+snippet compiler
+	 /* :COMPILER:`strftime("%c")`:`g:snips_email`: ${1} */
+snippet todo
+	 /* :TODO: `strftime("%c")`:`g:snips_email`: ${1} */
+snippet tricky
+	 /* :TRICKY: `strftime("%c")`:`g:snips_email`: ${1} */
+snippet warning
+	 /* :WARNING: `strftime("%c")`:`g:snips_email`: ${1} */
+snippet workaround
+	 /* :WORKAROUND: `strftime("%c")`:`g:snips_email`: ${1} */
+snippet keyword
+	 /* :${1}: `strftime("%c")`:`g:snips_email`: ${2} */
+###########################################################################
+# Special
+###########################################################################
+snippet empty
+	/* EMPTY */
+snippet fall-through
+	/* FALL THROUGH */
+snippet not-reached
+	/* NOT REACHED */
+###########################################################################
+# Files
+###########################################################################
+snippet fh C Style File Header
+	/*#################################################################
+	#   ____ _                 ____            _                      #
+	#  / ___(_)___  ___ ___   / ___| _   _ ___| |_ ___ _ __ ___  ___  #
+	# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \/ __| #
+	# | |___| \__ \ (_| (_) |  ___) | |_| \__ \ ||  __/ | | | | \__ \ #
+	#  \____|_|___/\___\___/  |____/ \__, |___/\__\___|_| |_| |_|___/ #
+	#                                |___/                            #
+	#                                                                 #
+	###################################################################
+	# Copyright 2014 Cisco Systems (USA)                              #
+	# All rights, including trade secret rights, reserved.            #
+	#################################################################*/
+snippet hfh C Style File Header
+	/*#################################################################
+	#   ____ _                 ____            _                      #
+	#  / ___(_)___  ___ ___   / ___| _   _ ___| |_ ___ _ __ ___  ___  #
+	# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \/ __| #
+	# | |___| \__ \ (_| (_) |  ___) | |_| \__ \ ||  __/ | | | | \__ \ #
+	#  \____|_|___/\___\___/  |____/ \__, |___/\__\___|_| |_| |_|___/ #
+	#                                |___/                            #
+	#                                                                 #
+	###################################################################
+	# Copyright 2014 Cisco Systems (USA)                              #
+	# All rights, including trade secret rights, reserved.            #
+	#################################################################*/
+	#ifndef INCLUSION_GUARD_`toupper(Filename())`_H
+	#define INCLUSION_GUARD_`toupper(Filename())`_H
+	
+	#ifdef __cplusplus
+	extern "C" {
+	#endif
+	
+	/**
+	 * Add code <HERE>
+	 */
+	
+	#ifdef __cplusplus
+	}
+	#endif
+	
+	#endif // INCLUSION_GUARD_`toupper(Filename())`_H

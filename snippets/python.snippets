@@ -38,6 +38,16 @@ snippet cl
 			${5:super($1, self).__init__()}
 			self.$4 = $4
 			${0}
+# New Test Case
+snippet tc
+	class ${1:ClassName}(${2:unittest.TestCase}):
+			'''${3:docstring for $1}'''
+
+			def setUp(self):
+				${4}
+
+			${5:def tearDown(self):
+				${6}}
 # New Function
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
@@ -214,3 +224,10 @@ snippet kwargs
 	**kwargs${1:,}${0}
 snippet akw
 	*args, **kwargs${1:,}${0}
+snippet repr
+	def __repr__(self):
+	    attributes = [
+	            ${1:self}
+	        ]
+	    parameters = ", ".join([ repr(attribute) for attribute in attributes ])
+	    return "%s(%s)" % (self.__class__.__name__, parameters)
