@@ -151,4 +151,185 @@ snippet fund "function declaration" b
 ${1:void} ${2:function_name}(${3});
 endsnippet
 
+###########################################################################
+# File Sections
+###########################################################################
+
+snippet finc "File includes" b
+//////////////////////////////////////////////////////////////////////
+/// @name Includes
+//@{
+
+${0}
+
+//@} End of Includes
+endsnippet
+
+snippet fdef "File Defines" b
+//////////////////////////////////////////////////////////////////////
+/// @name Defines
+//@{
+
+${0}
+
+//@} End of Defines
+endsnippet
+
+snippet ftype "File Typedefs" b
+//////////////////////////////////////////////////////////////////////
+/// @name Typedefs
+//@{
+
+${0}
+
+//@} End of Typedefs
+endsnippet
+
+snippet ftypes "File Types" b
+//////////////////////////////////////////////////////////////////////
+/// @name Types
+//@{
+
+${0}
+
+//@} End of Types
+endsnippet
+
+snippet fdata "File Data" b
+//////////////////////////////////////////////////////////////////////
+/// @name Data
+//@{
+
+${0}
+
+//@} End of Data
+endsnippet
+
+snippet fprivate "File Private Methods" b
+//////////////////////////////////////////////////////////////////////
+/// @name Private Methods
+//@{
+
+${0}
+
+//@} End of Private Methods
+endsnippet
+
+snippet fpublic "File Public Methods" b
+//////////////////////////////////////////////////////////////////////
+/// @name Methods
+//@{
+
+${0}
+
+//@} End of Methods
+endsnippet
+
+snippet fsec "File Section" b
+//////////////////////////////////////////////////////////////////////
+/// @name ${1:Section Name}
+//@{
+
+${0}
+
+//@} End of $1
+endsnippet
+
+
+###########################################################################
+# Keywords
+###########################################################################
+
+snippet bug
+	 /* :BUG: `strftime("%c")`:`g:snips_email`: ${1} */
+endsnippet
+
+snippet compiler
+	 /* :COMPILER:`strftime("%c")`:`g:snips_email`: ${1} */
+endsnippet
+
+snippet todo
+	 /* :TODO: `strftime("%c")`:`g:snips_email`: ${1} */
+endsnippet
+
+snippet tricky
+	 /* :TRICKY: `strftime("%c")`:`g:snips_email`: ${1} */
+endsnippet
+
+snippet warning
+	 /* :WARNING: `strftime("%c")`:`g:snips_email`: ${1} */
+endsnippet
+
+snippet workaround
+	 /* :WORKAROUND: `strftime("%c")`:`g:snips_email`: ${1} */
+endsnippet
+
+snippet keyword
+	 /* :${1}: `strftime("%c")`:`g:snips_email`: ${2} */
+endsnippet
+
+###########################################################################
+# Special
+###########################################################################
+
+snippet empty
+	/* EMPTY */
+endsnippet
+
+snippet fall-through
+	/* FALL THROUGH */
+endsnippet
+
+snippet not-reached
+	/* NOT REACHED */
+endsnippet
+
+###########################################################################
+# Files
+###########################################################################
+snippet fh "C Style File Header" b
+/*#################################################################
+#   ____ _                 ____            _                      #
+#  / ___(_)___  ___ ___   / ___| _   _ ___| |_ ___ _ __ ___  ___  #
+# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \/ __| #
+# | |___| \__ \ (_| (_) |  ___) | |_| \__ \ ||  __/ | | | | \__ \ #
+#  \____|_|___/\___\___/  |____/ \__, |___/\__\___|_| |_| |_|___/ #
+#                                |___/                            #
+#                                                                 #
+###################################################################
+# Copyright 2014 Cisco Systems (USA)                              #
+# All rights, including trade secret rights, reserved.            #
+#################################################################*/
+${0}
+endsnippet
+
+snippet fh "C Style File Header with Inclusion Guards" b
+/*#################################################################
+#   ____ _                 ____            _                      #
+#  / ___(_)___  ___ ___   / ___| _   _ ___| |_ ___ _ __ ___  ___  #
+# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \/ __| #
+# | |___| \__ \ (_| (_) |  ___) | |_| \__ \ ||  __/ | | | | \__ \ #
+#  \____|_|___/\___\___/  |____/ \__, |___/\__\___|_| |_| |_|___/ #
+#                                |___/                            #
+#                                                                 #
+###################################################################
+# Copyright 2014 Cisco Systems (USA)                              #
+# All rights, including trade secret rights, reserved.            #
+#################################################################*/
+#ifndef INCLUSION_GUARD_`toupper(Filename())`_H
+#define INCLUSION_GUARD_`toupper(Filename())`_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+${0}
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // INCLUSION_GUARD_`toupper(Filename())`_H
+endsnippet
+
 # vim:ft=snippets:
