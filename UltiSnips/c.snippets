@@ -287,17 +287,18 @@ endsnippet
 ###########################################################################
 # Files
 ###########################################################################
+
 snippet fh "C Style File Header" b
 /*#################################################################
 #   ____ _                 ____            _                      #
 #  / ___(_)___  ___ ___   / ___| _   _ ___| |_ ___ _ __ ___  ___  #
-# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \/ __| #
+# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ \` _ \/ __| #
 # | |___| \__ \ (_| (_) |  ___) | |_| \__ \ ||  __/ | | | | \__ \ #
 #  \____|_|___/\___\___/  |____/ \__, |___/\__\___|_| |_| |_|___/ #
 #                                |___/                            #
 #                                                                 #
 ###################################################################
-# Copyright 2014 Cisco Systems (USA)                              #
+# Copyright 2015 Cisco Systems (USA)                              #
 # All rights, including trade secret rights, reserved.            #
 #################################################################*/
 ${0}
@@ -307,17 +308,17 @@ snippet fh "C Style File Header with Inclusion Guards" b
 /*#################################################################
 #   ____ _                 ____            _                      #
 #  / ___(_)___  ___ ___   / ___| _   _ ___| |_ ___ _ __ ___  ___  #
-# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \/ __| #
+# | |   | / __|/ __/ _ \  \___ \| | | / __| __/ _ \ '_ \` _ \/ __| #
 # | |___| \__ \ (_| (_) |  ___) | |_| \__ \ ||  __/ | | | | \__ \ #
 #  \____|_|___/\___\___/  |____/ \__, |___/\__\___|_| |_| |_|___/ #
 #                                |___/                            #
 #                                                                 #
 ###################################################################
-# Copyright 2014 Cisco Systems (USA)                              #
+# Copyright 2015 Cisco Systems (USA)                              #
 # All rights, including trade secret rights, reserved.            #
 #################################################################*/
-#ifndef INCLUSION_GUARD_`toupper(Filename())`_H
-#define INCLUSION_GUARD_`toupper(Filename())`_H
+#ifndef INCLUSION_GUARD_`!p snip.rv = snip.basename.upper()`_H
+#define INCLUSION_GUARD_`!p snip.rv = snip.basename.upper()`_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -329,7 +330,8 @@ ${0}
 }
 #endif
 
-#endif // INCLUSION_GUARD_`toupper(Filename())`_H
+#endif // INCLUSION_GUARD_`!p snip.rv = snip.basename.upper()`_H
 endsnippet
+
 
 # vim:ft=snippets:
