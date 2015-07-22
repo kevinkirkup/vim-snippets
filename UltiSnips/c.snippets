@@ -317,8 +317,8 @@ snippet fh "C Style File Header with Inclusion Guards" b
 # Copyright 2015 Cisco Systems (USA)                              #
 # All rights, including trade secret rights, reserved.            #
 #################################################################*/
-#ifndef INCLUSION_GUARD_`!p snip.rv = snip.basename.upper()`_H
-#define INCLUSION_GUARD_`!p snip.rv = snip.basename.upper()`_H
+#ifndef ${1:INCLUSION_GUARD_`snip.fn.upper()`_H}
+#define ${1}
 
 #ifdef __cplusplus
 extern "C" {
@@ -330,7 +330,7 @@ ${0}
 }
 #endif
 
-#endif // INCLUSION_GUARD_`!p snip.rv = snip.basename.upper()`_H
+#endif // ${1}
 endsnippet
 
 
