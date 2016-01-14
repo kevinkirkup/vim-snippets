@@ -41,13 +41,13 @@ snippet cl
 # New Test Case
 snippet tc
 	class ${1:ClassName}(${2:unittest.TestCase}):
-			'''${3:docstring for $1}'''
+		'''${3:docstring for $1}'''
 
-			def setUp(self):
-				${4}
+		def setUp(self):
+			${4}
 
-			${5:def tearDown(self):
-				${6}}
+		def tearDown(self):
+			${5}
 # New Function
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
