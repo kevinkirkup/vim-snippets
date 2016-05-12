@@ -98,7 +98,13 @@ snippet gfh "Gmock Unit Test Header"
 # All rights, including trade secret rights, reserved.            #
 #################################################################*/
 
+//////////////////////////////////////////////////////////////////////
+/// @name Includes
+//@{
+
 #include <gmock/gmock.h>
+
+//@} End of Includes
 endsnippet
 
 snippet gt
@@ -111,21 +117,21 @@ class ${1:`!p snip.rc = snip.basename`}: public ::testing::Test {
 
 public:
 
-	$1(void) {}
+	$1() {}
 	virtual
-		~$1(void) {}
+		~$1() {}
 
 	/**
 	 * Test Case Setup
 	 */
 	virtual void
-		SetUp(void);
+		SetUp();
 
 	/**
-	 * Test Case Teardown
+	 * Test Case tear down
 	 */
 	virtual void
-		TearDown(void);
+		TearDown();
 
 	//////////////////////////////////////////////////
 	// Fields
