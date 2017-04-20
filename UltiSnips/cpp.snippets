@@ -40,8 +40,8 @@ endsnippet
 
 snippet readfile "read file (readF)"
 std::vector<char> v;
-if (FILE *fp = fopen(${1:"filename"}, "r"))
-{
+if (FILE *fp = fopen(${1:"filename"}, "r")) {
+
 	char buf[1024];
 	while(size_t len = fread(buf, 1, sizeof(buf), fp))
 		v.insert(v.end(), buf, buf + len);
@@ -59,6 +59,13 @@ endsnippet
 
 snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
+endsnippet
+
+##################################################
+# C++11
+##################################################
+snippet enumc class "Class Enumeration"
+enum class ${1:name} { $0 };
 endsnippet
 
 ##################################################
@@ -113,11 +120,11 @@ ${3}
 endsnippet
 
 snippet gcl
-class ${1:`!p snip.rc = snip.basename`}: public ::testing::Test {
-
-public:
+class ${1:`!p snip.rc = snip.basename`} : public ::testing::Test {
+ public:
 
 	$1() {}
+
 	virtual
 		~$1() {}
 
@@ -138,6 +145,9 @@ public:
 	//////////////////////////////////////////////////
 	${3}
 };
+
+void $1::SetUp() { }
+void $1::TearDown() { }
 endsnippet
 
 snippet gat
