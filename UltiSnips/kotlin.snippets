@@ -149,41 +149,41 @@ endsnippet
 
 # Generic Matchers
 
-snippet exp "expect ... toBeTheSameAs"
+snippet "expe?c?t?" "expect ... toBeTheSameAs" r
 	expect(${1}).toBeTheSameAs(${2})${0}
 endsnippet
 
-snippet exp "expect ... toNotBeTheSameAs"
+snippet "expe?c?t?" "expect ... toNotBeTheSameAs" r
 	expect(${1}).toNotBeTheSameAs(${2})${0}
 endsnippet
 
-snippet exp "expect ... toBe"
+snippet "expe?c?t?" "expect ... toBe" r
 	expect(${1}).toBe(${2})${0}
 endsnippet
 
-snippet exp "expect ... toBeNull"
+snippet "expe?c?t?" "expect ... toBeNull" r
 	expect(${1}).toBeNull(${2})${0}
 endsnippet
 
-snippet exp "expect ... toNotBeNull"
+snippet "expe?c?t?" "expect ... toNotBeNull" r
 	expect(${1}).toNotBeNull(${2})${0}
 endsnippet
 
-snippet exp "expect ... toBeInstanceOf"
+snippet "expe?c?t?" "expect ... toBeInstanceOf" r
 	expect(${1}).toBeInstanceOf<${2}>()${0}
 endsnippet
 
-snippet exp "expect ... toContain"
+snippet "expe?c?t?" "expect ... toContain" r
 	expect(${1}).toContain(${2})${0}
 endsnippet
 
 # Boolean Matchers
 
-snippet exp "expect ... toHold"
+snippet "expe?c?t?" "expect ... toHold" r
 	expect(${1}).toHold(${2})${0}
 endsnippet
 
-snippet exp "expect ... notToHold"
+snippet "expe?c?t?" "expect ... notToHold" r
 	expect(${1}).notToHold(${2})${0}
 endsnippet
 
@@ -199,53 +199,53 @@ endsnippet
 
 # List Matchers
 
-snippet exp "expect ... toBeEmpty"
+snippet "expe?c?t?" "expect ... toBeEmpty" r
 	expect(${1}).toBeEmpty(${2})${0}
 endsnippet
 
-snippet exp "expect ... toHaveSize"
+snippet "expe?c?t?" "expect ... toHaveSize" r
 	expect(${1}).toHaveSize(${2})${0}
 endsnippet
 
 # Numerical Matchers
 
-snippet exp "expect ... toBeSmallerThan"
+snippet "expe?c?t?" "expect ... toBeSmallerThan" r
 	expect(${1}).toBeSmallerThan(${2})${0}
 endsnippet
 
-snippet exp "expect ... toBeGreaterThan"
+snippet "expe?c?t?" "expect ... toBeGreaterThan" r
 	expect(${1}).toBeGreaterThan(${2})${0}
 endsnippet
 
-snippet exp "expect ... toBeIn"
+snippet "expe?c?t?" "expect ... toBeIn" r
 	expect(${1}).toBeIn(${2})${0}
 endsnippet
 
 # String Matchers
 
-snippet exp "expect ... toContain"
+snippet "expe?c?t?" "expect ... toContain" r
 	expect(${1}).toContain(${2})${0}
 endsnippet
 
 # Observer
 
-snippet exp "expect ... toHaveNoValues"
+snippet "expe?c?t?" "expect ... toHaveNoValues" r
 	expect(${1:observer}).toHaveNoValues()${0}
 endsnippet
 
-snippet exp "expect ... toHaveValues"
+snippet "expe?c?t?" "expect ... toHaveValues" r
 	expect(${1:observer}).toHaveValues(${2})${0}
 endsnippet
 
-snippet exp "expect ... toHaveValueCount"
+snippet "expe?c?t?" "expect ... toHaveValueCount" r
 	expect(${1:observer}).toHaveValueCount(${2})${0}
 endsnippet
 
-snippet exp "expect ... toBeCompleted"
+snippet "expe?c?t?" "expect ... toBeCompleted" r
 	expect(${1:observer}).toBeCompleted()${0}
 endsnippet
 
-snippet exp "expect ... toHaveError"
+snippet "expe?c?t?" "expect ... toHaveError" r
 	expect(${1:observer}).toHaveError(${2:expection})${0}
 endsnippet
 
@@ -253,33 +253,33 @@ endsnippet
 #                            Decorators                                   #
 ###########################################################################
 
-snippet @sin "@Singleton"
+snippet "@(S|s)ing?l?e?t?o?n?" "@Singleton" r
 @Singleton
 endsnippet
 
-snippet @cn "@ColumnName"
+snippet "@(C|c)ol?u?m?n?N?a?m?e?" "@ColumnName" r
 @ColumnName("${1}")${0}
 endsnippet
 
-snippet @ggk "@GetGeneratedKeys"
+snippet "@(G|g)etG?e?n?e?r?a?t?e?d?K?e?y?s?" "@GetGeneratedKeys" r
 @GetGeneratedKeys
 endsnippet
 
-snippet @tra "@Transaction"
+snippet "@(T|t)ran?a?s?c?a?t?i?o?n?" "@Transaction" r
 @Transaction
 endsnippet
 
-snippet @urr "@UseRowReducer"
-@UseRowReducer
+snippet "@(U|u)seR?o?w?R?e?d?u?c?e?r?" "@UseRowReducer"
+@UseRowReducer(${1: ${2}RowReducer::class})
 endsnippet
 
-snippet @sqlu "@SqlUpdate" m
+snippet "@(S|s)qlU?p?d?a?t?e?" "@SqlUpdate" rm
 @SqlUpdate("""
 	${1}
 """)${0}
 endsnippet
 
-snippet @sqlq "@SqlQuery" m
+snippet "@(S|s)qlQ?u?e?r?y?" "@SqlQuery" rm
 @SqlUpdate("""
 	$SQL_FIND
 	${1}
@@ -301,6 +301,7 @@ interface `!v vim_snippets#Filename('$1', 'name')` {
 
 	@SqlUpdate("""
 		insert into ${2:table} (
+			${0}
 		) values (
 		)
 	""")
