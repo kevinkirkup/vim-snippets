@@ -1,0 +1,402 @@
+# Snippets for Kotlin
+
+priority -50
+
+snippet pkg "Package" b
+package ${0:com.pureport.kato}
+endsnippet
+
+snippet imp "Import" b
+import ${0:com.pureport.kato}
+endsnippet
+
+snippet fun "Function"
+fun ${1:name}(${2}): ${3:String} {
+	${4}
+}
+endsnippet
+
+snippet pfun "Private Function"
+private fun ${1:name}(${2}): ${3:String} {
+	${4}
+}
+endsnippet
+
+snippet ret "return"
+return ${0}
+endsnippet
+
+snippet whe "when"
+when(${1:${VISUAL}}) {
+	${2} -> ${3}
+}
+endsnippet
+
+snippet cla "class"
+class ${1} {
+${0:${VISUAL}}
+}
+endsnippet
+
+snippet cobj "companion object"
+companion object {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet obj "object"
+object ${1} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet if
+if(${1}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet ife "if ... else"
+if(${1}) {
+	${2:${VISUAL}}
+} else {
+	${0}
+}
+endsnippet
+
+snippet init "Class Init"
+init() {
+	${0}
+}
+endsnippet
+
+snippet val "val"
+val ${2} ${1:: Type} = ${0}
+endsnippet
+
+snippet var
+var ${2} ${1:: Type} = ${0}
+endsnippet
+
+snippet pval "val"
+private val ${2} ${1:: Type} = ${0}
+endsnippet
+
+snippet pvar
+rivate var ${2} ${1:: Type} = ${0}
+endsnippet
+
+###########################################################################
+#                            Unit Tests                                   #
+###########################################################################
+
+
+#--------------------------------------------------------------------------
+#                               Spek2                                     #
+#--------------------------------------------------------------------------
+snippet tc "Test Case" m
+object ${1:`!v vim_snippets#Filename('$1', 'name')`} : Spek({
+
+	${0}
+})
+endsnippet
+
+snippet des "Describe ..." m
+describe("${1:A ${2}}") {
+
+	${0}
+}
+endsnippet
+
+snippet it "It ..." m
+it("${1:should ${2}}") {
+
+	${0}
+}
+endsnippet
+
+snippet bf "Before Group ..." m
+before {
+
+	${0}
+}
+endsnippet
+
+snippet af "After Group ..." m
+after {
+
+	${0}
+}
+endsnippet
+
+snippet be "Before Each Test ..." m
+beforeEach {
+
+	${0}
+}
+endsnippet
+
+snippet ae "After Each Test ..." m
+afterEach {
+
+	${0}
+}
+endsnippet
+
+#--------------------------------------------------------------------------
+#                              Expect                                     #
+#--------------------------------------------------------------------------
+
+# Generic Matchers
+
+snippet exp "expect ... toBeTheSameAs"
+	expect(${1}).toBeTheSameAs(${2})${0}
+endsnippet
+
+snippet exp "expect ... toNotBeTheSameAs"
+	expect(${1}).toNotBeTheSameAs(${2})${0}
+endsnippet
+
+snippet exp "expect ... toBe"
+	expect(${1}).toBe(${2})${0}
+endsnippet
+
+snippet exp "expect ... toBeNull"
+	expect(${1}).toBeNull(${2})${0}
+endsnippet
+
+snippet exp "expect ... toNotBeNull"
+	expect(${1}).toNotBeNull(${2})${0}
+endsnippet
+
+snippet exp "expect ... toBeInstanceOf"
+	expect(${1}).toBeInstanceOf<${2}>()${0}
+endsnippet
+
+snippet exp "expect ... toContain"
+	expect(${1}).toContain(${2})${0}
+endsnippet
+
+# Boolean Matchers
+
+snippet exp "expect ... toHold"
+	expect(${1}).toHold(${2})${0}
+endsnippet
+
+snippet exp "expect ... notToHold"
+	expect(${1}).notToHold(${2})${0}
+endsnippet
+
+# Error Matchers
+
+snippet .on ".on"      A
+	.on(${1})${0}
+endsnippet
+
+snippet .when ".when_" A
+	.on(${1})${0}
+endsnippet
+
+# List Matchers
+
+snippet exp "expect ... toBeEmpty"
+	expect(${1}).toBeEmpty(${2})${0}
+endsnippet
+
+snippet exp "expect ... toHaveSize"
+	expect(${1}).toHaveSize(${2})${0}
+endsnippet
+
+# Numerical Matchers
+
+snippet exp "expect ... toBeSmallerThan"
+	expect(${1}).toBeSmallerThan(${2})${0}
+endsnippet
+
+snippet exp "expect ... toBeGreaterThan"
+	expect(${1}).toBeGreaterThan(${2})${0}
+endsnippet
+
+snippet exp "expect ... toBeIn"
+	expect(${1}).toBeIn(${2})${0}
+endsnippet
+
+# String Matchers
+
+snippet exp "expect ... toContain"
+	expect(${1}).toContain(${2})${0}
+endsnippet
+
+# Observer
+
+snippet exp "expect ... toHaveNoValues"
+	expect(${1:observer}).toHaveNoValues()${0}
+endsnippet
+
+snippet exp "expect ... toHaveValues"
+	expect(${1:observer}).toHaveValues(${2})${0}
+endsnippet
+
+snippet exp "expect ... toHaveValueCount"
+	expect(${1:observer}).toHaveValueCount(${2})${0}
+endsnippet
+
+snippet exp "expect ... toBeCompleted"
+	expect(${1:observer}).toBeCompleted()${0}
+endsnippet
+
+snippet exp "expect ... toHaveError"
+	expect(${1:observer}).toHaveError(${2:expection})${0}
+endsnippet
+
+###########################################################################
+#                            Decorators                                   #
+###########################################################################
+
+snippet @sin "@Singleton"
+@Singleton
+endsnippet
+
+snippet @cn "@ColumnName"
+@ColumnName("${1}")${0}
+endsnippet
+
+snippet @ggk "@GetGeneratedKeys"
+@GetGeneratedKeys
+endsnippet
+
+snippet @tra "@Transaction"
+@Transaction
+endsnippet
+
+snippet @urr "@UseRowReducer"
+@UseRowReducer
+endsnippet
+
+snippet @sqlu "@SqlUpdate" m
+@SqlUpdate("""
+	${1}
+""")${0}
+endsnippet
+
+snippet @sqlq "@SqlQuery" m
+@SqlUpdate("""
+	$SQL_FIND
+	${1}
+""")${0}
+endsnippet
+
+###########################################################################
+#                            File Templates                               #
+###########################################################################
+
+snippet dao "DAO Template" m
+import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys
+import org.jdbi.v3.sqlobject.statement.SqlQuery
+import org.jdbi.v3.sqlobject.statement.SqlUpdate
+import org.jdbi.v3.sqlobject.statement.UseRowReducer
+import org.jdbi.v3.sqlobject.transaction.Transaction
+
+interface `!v vim_snippets#Filename('$1', 'name')` {
+
+	@SqlUpdate("""
+		insert into ${2:table} (
+		) values (
+		)
+	""")
+	@GetGeneratedKeys
+	fun insert(obj: ${1:ModelType}): Int
+
+	@SqlUpdate("""
+		update $2
+		set xxx = :obj.xxx
+		where id = :obj.id
+	""")
+	fun update(obj: $1): Int
+
+	@SqlUpdate("""
+		delete from $2
+		where id = :${1/\w+/\l$0Id/g}
+	""")
+	fun delete(${1/\w+/\l$0Id/g}: Int)
+
+	@SqlUpdate("""
+		select * from $2
+		where id = :id
+	""")
+	@UseRowReducer($1RowReducer::class)
+	fun findById(id: Int): $1?
+
+	@SqlUpdate("""
+		select * from $2
+	""")
+	@UseRowReducer($1RowReducer::class)
+	fun findAll(): List<$1>
+
+	@SqlUpdate("""
+		select * from $2
+	""")
+	@UseRowReducer($1RowReducer::class)
+	fun findAllBy${3:Key}Id(${3/\w+/\l$0/g}Id: Int): List<$1>
+
+}
+endsnippet
+
+snippet rr "RowReducer Template" b
+import com.pureport.jdbi.Builder
+import com.pureport.jdbi.LinkedHashMapBuilderRowReducer
+import javax.inject.Singleton
+import org.jdbi.v3.core.mapper.reflect.ColumnName
+import org.jdbi.v3.core.result.RowView
+
+@Singleton
+class ${1:`!v vim_snippets#Filename('$1', 'name')`}
+	: LinkedHashMapBuilderRowReducer<Int, $1.${2:${1/(\w+)RowReducer/$1/}}Builder, $2> {
+
+	class $2Builder (
+
+	@ColumnName("id")
+	var id: Int?,
+
+	${0}
+
+	) : Builder<$2> {
+		override fun build(): $2 {
+			return $2()
+		}
+	}
+
+	override fun accumulate(container: MutableMap<Int, $2Builder>?, rowView: RowView?) {
+		val ${2/\w+/\l$0/g}Builder = container?.computeIfAbsent(rowView?.getColumn("id", Integer::class.java)!!.toInt()) {
+			rowView.getRow($2Builder::class.java)
+		}
+	}
+}
+endsnippet
+
+snippet rrc "RowReducer Column" m
+rowView?.getColumn("${1:column_name}", ${1:Class}::class.java)?.let {
+	${0}
+}
+endsnippet
+
+snippet rrb "RowReducer Builder" m
+class ${1:ModelType}Builder : Builder<$1> {
+
+	@ColumnName("${2}")
+	var id: Int? = null
+
+	${0}
+
+	override fun build(): $1 {
+		return $1()
+	}
+}
+endsnippet
+
+snippet rrcol "RowReducer Builder Column" m
+@ColumnName("${1}")
+var ${2:name}: ${3:Type}${4: = ${5}}
+
+${0}
+endsnippet
