@@ -2,7 +2,9 @@
 # Rust Snippets #
 #################
 
+# --------------------------------------------------
 # Functions
+# --------------------------------------------------
 snippet fn "Function definition"
 	fn ${1:function_name}(${2})${3} {
 		${0}
@@ -45,7 +47,9 @@ snippet pln, "println! with format param"
 snippet fmt "format!"
 	format!("${1}{${2}}", ${3});
 
+# --------------------------------------------------
 # Modules
+# --------------------------------------------------
 snippet ec "extern crate"
 	extern crate ${1:sync};
 snippet ecl "extern crate log"
@@ -55,7 +59,9 @@ snippet mod
 	mod ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} {
 		${0}
 	} /* $1 */
+# --------------------------------------------------
 # Testing
+# --------------------------------------------------
 snippet as "assert!"
 	assert!(${1:predicate});
 snippet ase "assert_eq!"
@@ -72,7 +78,9 @@ snippet testmod "Test module" b
 
 		test${0}
 	}
+# --------------------------------------------------
 # Attributes
+# --------------------------------------------------
 snippet allow "allow lint attribute" b
 	#[allow(${1:unused_variable})]
 snippet cfg "cfg attribute" b
@@ -92,12 +100,16 @@ snippet crate "Define create meta attributes"
 	#![comment = "${4:Comment.}"]
 	// Specify the output type
 	#![crate_type = "${5:lib}"]
+# --------------------------------------------------
 # Common types
+# --------------------------------------------------
 snippet opt "Option<T>"
 	Option<${1:i32}>
 snippet res "Result<T, E>"
 	Result<${1:~str}, ${2:()}>
+# --------------------------------------------------
 # Control structures
+# --------------------------------------------------
 snippet if
 	if ${1} {
 		${0:${VISUAL}}
@@ -136,12 +148,16 @@ snippet for "for ... in ... loop"
 	for ${1:i} in ${2} {
 		${0}
 	}
+# --------------------------------------------------
 # TODO commenting
+# --------------------------------------------------
 snippet todo "TODO comment"
 	// TODO: $0
 snippet fixme "FIXME comment"
 	// FIXME: $0
+# --------------------------------------------------
 # Struct
+# --------------------------------------------------
 snippet st "Struct definition"
 	struct ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} {
 		${0}
@@ -181,12 +197,16 @@ snippet drop "Drop trait implementation (destructor)"
 			${0}
 		}
 	}
+# --------------------------------------------------
 # Statics
+# --------------------------------------------------
 snippet ss "static string declaration"
 	static ${1}: &'static str = "${0}";
 snippet stat "static item declaration"
 	static ${1}: ${2:usize} = ${0};
+# --------------------------------------------------
 # Concurrency
+# --------------------------------------------------
 snippet scoped "spawn a scoped thread"
 	thread::scoped(${1:move }|| {
 		${0}
@@ -197,7 +217,9 @@ snippet spawn "spawn a thread"
 	});
 snippet chan "Declare (Sender, Receiver) pair of asynchronous channel()"
 	let (${1:tx}, ${2:rx}): (Sender<${3:i32}>, Receiver<${4:i32}>) = channel();
+# --------------------------------------------------
 # Implementations
+# --------------------------------------------------
 snippet asref "AsRef trait implementation"
 	impl AsRef<${1:Ref}> for ${2:Type} {
 		fn as_ref(&self) -> &${3:$1} {
