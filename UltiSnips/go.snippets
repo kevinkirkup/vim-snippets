@@ -1,3 +1,4 @@
+# vim:ft=snippets:
 # Snippets for Go
 
 priority -50
@@ -13,7 +14,7 @@ endsnippet
 
 snippet /^package/ "Package declaration" r
 // Package $1 provides ...
-package ${1:main}
+package ${1:`!p import os; snip.rv = os.path.basename(os.getcwd())`}
 endsnippet
 
 # Mostly converted from: https://github.com/AlanQuatermain/go-tmbundle
@@ -104,8 +105,6 @@ endsnippet
 snippet json "JSON field"
 \`json:"${1:displayName}"\`
 endsnippet
-
-# vim:ft=snippets:
 
 # error handling
 snippet err "Basic error handling" b
