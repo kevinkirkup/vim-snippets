@@ -4,6 +4,19 @@
 
 priority -50
 
+# --------------------------------------------------
+# Macros
+# --------------------------------------------------
+
+snippet #der "#[derive(?)]" b
+#[derive($1)]
+$0
+endsnippet
+
+# --------------------------------------------------
+# Functions Definitions
+# --------------------------------------------------
+
 snippet fn "pub fn name(?) -> ? {}"
 fn ${1:function_name}($2)${3/..*/ -> /}$3 {
 	${VISUAL}$0
@@ -15,6 +28,10 @@ pub fn ${1:function_name}($2)${3/..*/ -> /}$3 {
 	${VISUAL}$0
 }
 endsnippet
+
+# --------------------------------------------------
+# Print Functions
+# --------------------------------------------------
 
 snippet pri "print!(..)" b
 print!("$1"${2/..*/, /}$2);
@@ -32,4 +49,15 @@ snippet it ".iter()" i
 .iter()$0
 endsnippet
 
-# vim:ft=snippets:
+# --------------------------------------------------
+# Result snippets
+# --------------------------------------------------
+
+snippet res "Result<...>" b
+Result<$1, $2>
+endsnippet
+
+snippet ok "Ok()" b
+Ok($0)
+endsnippet
+
