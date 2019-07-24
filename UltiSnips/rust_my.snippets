@@ -4,39 +4,43 @@
 
 priority -50
 
-
 # --------------------------------------------------
-# Functions Definitions
+# Macros
 # --------------------------------------------------
 
-snippet fn "pub fn name(?) -> ? {}"
-fn ${1:function_name}($2)${3/..*/ -> /}$3 {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet pfn "pub fn name(?) -> ? {}"
-pub fn ${1:function_name}($2)${3/..*/ -> /}$3 {
-	${VISUAL}$0
-}
+snippet der?i?v?e? "#[derive(?)]" rb
+#[derive($1)]
+$0
 endsnippet
 
 # --------------------------------------------------
-# Print Functions
+# Result snippets
 # --------------------------------------------------
 
-snippet pri "print!(..)" b
-print!("$1"${2/..*/, /}$2);
+snippet res "Result<...>" b
+Result<$1, $2>
 endsnippet
 
-snippet pln "println!(..)" b
-println!("$1"${2/..*/, /}$2);
+snippet ok "Ok()" b
+Ok($0)
 endsnippet
 
-snippet fmt "format!(..)"
-format!("$1"${2/..*/, /}$2);
+snippet err "Err()" b
+Err("$0".into())
 endsnippet
 
-snippet it ".iter()" i
-.iter()$0
+# --------------------------------------------------
+# Option snippets
+# --------------------------------------------------
+
+snippet res "Option<...>" b
+Option<$1>
+endsnippet
+
+snippet so "Some()" b
+Some($0)
+endsnippet
+
+snippet n "None" b
+None
 endsnippet
