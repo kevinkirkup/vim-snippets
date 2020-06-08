@@ -9,7 +9,7 @@ priority -50
 # Functions Definitions
 # --------------------------------------------------
 
-snippet fn "pub fn name(?) -> ? {}"
+snippet fn "fn name(?) -> ? {}"
 fn ${1:function_name}($2)${3/..*/ -> /}$3 {
 	${VISUAL}$0
 }
@@ -24,6 +24,17 @@ endsnippet
 # --------------------------------------------------
 # Print Functions
 # --------------------------------------------------
+snippet afn "async fn name(?) -> ? {}"
+async fn ${1:function_name}($2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pafn "pub async fn name(?) -> ? {}"
+pub async fn ${1:function_name}($2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
 
 snippet pri "print!(..)" b
 print!("$1"${2/..*/, /}$2);
@@ -37,6 +48,14 @@ snippet fmt "format!(..)"
 format!("$1"${2/..*/, /}$2);
 endsnippet
 
-snippet it ".iter()" i
+snippet .it ".iter()" i
 .iter()$0
 endsnippet
+
+snippet impl "Struct/Trait implementation" b
+impl ${1:Type/Trait}${2: for ${3:Type}} {
+	$0
+}
+endsnippet
+
+# vim:ft=snippets:
