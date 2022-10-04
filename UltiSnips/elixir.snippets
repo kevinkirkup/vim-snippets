@@ -1,10 +1,22 @@
 # vim:ft=snippets:
-# Snippets for Go
+# Snippets for Elixir
 
 priority -50
 
-snippet putf "IO.puts fancy" b
-IO.puts("*** ${1:name}: #{inspect($1)}")
+snippet ins "IO.inspect(label:XXX)" b
+IO.inspect("${1}")
+endsnippet
+
+snippet insl "IO.inspect(label:XXX)" b
+IO.inspect(${1:var}, label: "*** ${1}")
+endsnippet
+
+snippet insp "|> IO.inspect(label:XXX)" b
+|> IO.inspect(label: "*** ${1:name}")
+endsnippet
+
+snippet st "Print Stack Trace" b
+IO.inspect(Process.info(self(), :current_stacktrace), label: "STACKTRACE")
 endsnippet
 
 snippet fil "Filter Field - prefix" b
@@ -29,8 +41,4 @@ endsnippet
 
 snippet fil "Filter Field - date" b
 %{name: :${1:name}, field_name: :$1, binding: :${2:table}, method: :date},
-endsnippet
-
-snippet st "Print Stack Trace" b
-IO.inspect(Process.info(self(), :current_stacktrace), label: "STACKTRACE")
 endsnippet
